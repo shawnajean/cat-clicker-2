@@ -115,7 +115,7 @@ $(function() {
       octopus.catListen( cat.name );
     },
     updateScore: function( cat ) {
-      $('.score').text( cat.clicks );
+      this.catScoreElem.text( 'Score: ' + cat.clicks );
     }
   };
 
