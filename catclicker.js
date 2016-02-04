@@ -49,6 +49,7 @@ $(function() {
       return model.cats;
     },
     setCurrentCat: function( cat ){
+      console.log( cat );
       model.currentCat = cat;
     },
     listListen: function( name ) { // adds a listener for the specified cat
@@ -60,6 +61,7 @@ $(function() {
       var catName = name.currentTarget.className;
 
       var index = model.getCat( catName );
+      octopus.setCurrentCat( model.cats[index] );
       catView.render( model.cats[ index ] );
     },
     catListen: function( name ) {
