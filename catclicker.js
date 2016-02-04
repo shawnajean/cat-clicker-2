@@ -3,7 +3,9 @@ $(function() {
   var model = {
 
     init: function() {
-
+      if (!localStorage.notes) {
+        localStorage.notes = JSON.stringify([]);
+      }
     },
     add: function() {
 
