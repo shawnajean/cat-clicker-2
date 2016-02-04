@@ -31,6 +31,7 @@ $(function() {
     init: function() { // initializes the app
       listView.init();
       catView.init();
+      adminView.init();
     },
     getCats: function() { // returns the array of cats
       return model.cats;
@@ -46,6 +47,7 @@ $(function() {
 
       catView.updateScore( model.currentCat );
     }
+    //add functions for handling three buttons
   };
 
   var listView = {
@@ -95,6 +97,15 @@ $(function() {
     updateScore: function( cat ) {
       this.catScoreElem.text( 'Score: ' + cat.clicks );
     }
+  };
+
+  var adminView = {
+    init: function() {
+      this.adminFormElem = $('#admin-settings');
+
+      //add listeners for 3 buttons
+    }
+    // add function for updating form contents & displaying form
   };
 
   octopus.init();
