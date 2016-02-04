@@ -38,7 +38,7 @@ $(function() {
 
   var listView = {
     init: function() {
-
+      var $listElem = $('#catlist');
     },
     render: function() {
 
@@ -48,7 +48,7 @@ $(function() {
 
   var playView = {
     init: function() {
-
+      var $catsElem = $('#cats');
     },
     render: function( cat ) {
 
