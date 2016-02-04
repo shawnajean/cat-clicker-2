@@ -24,20 +24,7 @@ $(function() {
         name: "Yoann",
         clicks: 0
       }
-    ],
-    getCat: function( name ) {
-      var index = this.cats.findIndex( function( element, index, array ) {
-        if( element.name !== name ) {
-          return false;
-        }
-        return true;
-      });
-
-      return index;
-    },
-    click: function( index ) {
-      this.cats[index].clicks++;
-    }
+    ]
   };
 
   var octopus = {
