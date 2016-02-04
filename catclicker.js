@@ -33,8 +33,7 @@ $(function() {
     getCats: function() { // returns the array of cats
       return model.cats;
     },
-    listListen: function( cssClass ) { // adds a listener for the specified class
-      console.log("this happened - " + cssClass );
+    listListen: function( name ) { // adds a listener for the specified cat
       $('a.' + name ).click( function( name ) {
         return octopus.clickList( name );
       });
@@ -43,8 +42,13 @@ $(function() {
       var catName = name.currentTarget.className;
       console.log( catName );
     },
-    clickCat: function() {
-
+    catListen: function( name ) {
+      $('div.' + name ).click( function( name ) {
+        return octopus.clickCat( name );
+      });
+    },
+    clickCat: function( name ) {
+      console.log("click");
     }
   };
 
@@ -76,8 +80,9 @@ $(function() {
     },
     render: function( cat ) {
       this.catsElem.append('<div class="catpic ' + cat.name + '"><h3>' + cat.name + '</h3><img src=' + cat.url + '/><p>Score: <span>' + cat.clicks +'</span></p></div>');
-    }
 
+      octopus.catListen( cat.name );
+    }
   };
 
   octopus.init();
