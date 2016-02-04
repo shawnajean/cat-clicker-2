@@ -105,6 +105,16 @@ $(function() {
   var adminView = {
     init: function() {
       this.adminFormElem = $('#admin-settings');
+      this.adminFormElem.toggle();
+
+      this.adminToggle = $('button.admin-toggle');
+
+      this.adminToggle.click( (function( adminFormElem ) {
+        return function( adminFormElem ) {
+          adminView.updateForm();
+        };
+      })( this.adminFormElem ));
+
       this.catNameElem = $('input.cat-name');
       this.catURLElem = $('input.cat-url');
       this.catClicksElem = $('input.cat-clicks');
@@ -126,21 +136,13 @@ $(function() {
           this.adminFormElem.toggle();
         }
       })( this.catNameElem.val(), this.catURLElem.val(), this.catClicksElem.val() ));
-
-      this.adminToggle = $('button.admin-toggle');
-
-      this.adminToggle.on('click', function() {
-        return function() {
-          adminView.updateForm();
-          this.adminFormElem.toggle();
-        }
-      });
     },
     resetForm: function() {
 
     },
     updateForm: function() {
 
+      this.adminFormElem.toggle();
     },
     notify: function( notif ){
 
