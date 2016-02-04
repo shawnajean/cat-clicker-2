@@ -97,11 +97,19 @@ $(function() {
 
   var catView = {
     init: function() { // initializes cat view
-      this.catsElem = $('#cats');
+      this.catElem = $('#cat');
+      this.catNameElem = $('#cat-name');
+      this.catImgElem = $('#cat-img');
+      this.catScoreElem = $('#score');
+
+      this.catImgElem.on('click', function(e){
+        octopus.clickCat();
+      });
     },
     render: function( cat ) {
-      this.catsElem.text( "" );
-      this.catsElem.append('<div class="' + cat.name + '"><h3>' + cat.name + '</h3><img src=' + cat.url + '/><p>Score: <span class="score">' + cat.clicks +'</span></p></div>');
+      this.catNameElem.text( cat.name );
+      this.catImgElem.attr('src', cat.url );
+      this.catScoreElem.text( 'Score: ' + cat.clicks );
 
       octopus.catListen( cat.name );
     },

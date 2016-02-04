@@ -23,7 +23,7 @@ div img {
   margin: 0 auto;
 }
 
-#cats {
+#cat {
   left: 315px;
   float: left;
   width: 500px;
@@ -31,7 +31,7 @@ div img {
   margin-right: 10px;
 }
 
-#cats h3 {
+#cat h3 {
   background: #999;
   margin-top: 0;
   padding: 20px 0px;
@@ -43,8 +43,4 @@ div img {
   background: #999;
   padding: 15px;
   margin-left: 50px;
-}
-
-.hidden {
-  display: none;
 }
