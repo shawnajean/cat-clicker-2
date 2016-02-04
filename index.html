@@ -14,11 +14,28 @@
         <ul id="catlist">
         </ul>
       </div>
+      <div id="main">
+        <div id="cat">
+              <h3 id="cat-name"></h3>
+              <img id="cat-img" src=""/>
+              <div id="score"></div>
+        </div>
 
-      <div id="cat">
-            <h3 id="cat-name"></h3>
-            <img id="cat-img" src=""/>
-            <div id="score"></div>
+        <div id="admin">
+          <button>Admin</button>
+          <div id="admin-settings">
+            <form>
+              <label>Name:</label>
+              <input type="text" name="catName"><br/>
+              <label>Image URL:</label>
+              <input type="url" name="catURL"><br/>
+              <label>Click Count:</label>
+              <input type="number" name="clickCount"><br/>
+              <input type="submit" class="save" name="save" value="Save">
+              <input type="reset" class="cancel" name="cancel" value="Cancel">
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 

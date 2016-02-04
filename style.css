@@ -23,12 +23,24 @@ div img {
   margin: 0 auto;
 }
 
-#cat {
-  left: 315px;
+#sidebar {
   float: left;
+  width: 250px;
+  background: #999;
+  padding: 15px;
+  margin-left: 50px;
+}
+
+#main {
+  float: left;
+  display: block;
   width: 500px;
   padding: 0 15px;
   margin-right: 10px;
+}
+
+#cat {
+  width: 100%;
 }
 
 #cat h3 {
@@ -37,10 +49,53 @@ div img {
   padding: 20px 0px;
 }
 
-#sidebar {
-  float: left;
-  width: 250px;
-  background: #999;
-  padding: 15px;
-  margin-left: 50px;
+#admin {
+  display: block;
+  width: 100%;
+}
+
+#admin button, input.cancel, input.save {
+  background: #555;
+  color: #fff;
+  border: 0;
+  float: right;
+  font-family: monospace;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 1em;
+}
+
+#admin button {
+  display: block;
+  margin-left: 100%;
+  margin-bottom: 15px;
+}
+
+#admin button:hover {
+  background: #000;
+}
+
+#admin-settings {
+  margin-top: 20px;
+}
+
+label {
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	width: 100px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 75%;
+}
+
+input:focus {
+  border: 2px solid #555;
+}
+
+input.cancel, input.save  {
+  width: auto;
 }
