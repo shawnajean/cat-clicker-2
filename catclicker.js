@@ -14,9 +14,6 @@ $(function() {
       this.cats.push( {url: "https://farm6.staticflickr.com/5704/20443802614_d0b0c0b5c5_b.jpg",
       name: "Yoann"} );
     },
-    getAllCats: function() {
-
-    },
     click: function( index ) {
 
     }
@@ -29,7 +26,7 @@ $(function() {
       catView.init();
     },
     getCats: function() {
-      return model.getAllCats();
+      return model.cats;
     },
     clickList: function() {
 
