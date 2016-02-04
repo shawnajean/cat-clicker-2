@@ -51,6 +51,9 @@ $(function() {
     setCurrentCat: function( cat ){
       model.currentCat = cat;
     },
+    getCurrentCat: function() {
+      return model.currentCat;
+    },
     listListen: function( name ) { // adds a listener for the specified cat
       $('a.' + name ).click( function( name ) {
         return octopus.clickList( name );
@@ -89,7 +92,6 @@ $(function() {
 
         $('#' + cat.name ).on('click', (function(catcopy) {
           return function() {
-            console.log( catcopy );
             octopus.setCurrentCat( catcopy );
             catView.render();
           };
@@ -110,6 +112,7 @@ $(function() {
       });
     },
     render: function( cat ) {
+      cat = octopus.getCurrentCat();
       this.catNameElem.text( cat.name );
       this.catImgElem.attr('src', cat.url );
       this.catScoreElem.text( 'Score: ' + cat.clicks );
