@@ -26,7 +26,7 @@ $(function() {
 
       return list[0];
     },
-    click: function( index ) {
+    click: function( name ) {
 
     }
   };
@@ -57,7 +57,8 @@ $(function() {
       });
     },
     clickCat: function( name ) {
-      console.log("click");
+      var catName = name.currentTarget.className;
+      console.log( catName );
     }
   };
 
@@ -89,9 +90,12 @@ $(function() {
     },
     render: function( cat ) {
       this.catsElem.text( "" );
-      this.catsElem.append('<div class="catpic ' + cat.name + '"><h3>' + cat.name + '</h3><img src=' + cat.url + '/><p>Score: <span>' + cat.clicks +'</span></p></div>');
+      this.catsElem.append('<div class="' + cat.name + '"><h3>' + cat.name + '</h3><img src=' + cat.url + '/><p>Score: <span class="score">' + cat.clicks +'</span></p></div>');
 
       octopus.catListen( cat.name );
+    },
+    renderScore: function( cat ) {
+
     }
   };
 
