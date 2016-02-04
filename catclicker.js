@@ -3,21 +3,27 @@ $(function() {
   var model = {
     init: function() { // initializes model
       this.cats = [];
-      this.cats.push( {url: "http://google.com",name: "Googs",clicks: 0},{url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
-      name: "Xuxa",
-      clicks: 0 } );
-      this.cats.push( {url: "https://farm3.staticflickr.com/2298/2290467335_89067c7b51_b.jpg",
-      name: "Chewie",
-      clicks: 0 } );
-      this.cats.push( {url: "https://farm8.staticflickr.com/7401/16393044637_72e93d96b6_b.jpg",
-      name: "Sunny",
-      clicks: 0 } );
-      this.cats.push( {url: "https://farm9.staticflickr.com/8208/8216315457_28762c496d_b.jpg",
-      name: "Danny",
-      clicks: 0 } );
-      this.cats.push( {url: "https://farm6.staticflickr.com/5704/20443802614_d0b0c0b5c5_b.jpg",
-      name: "Yoann",
-      clicks: 0 } );
+      this.cats.push( {
+        url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
+        name: "Xuxa",
+        clicks: 0
+      },{
+        url: "https://farm3.staticflickr.com/2298/2290467335_89067c7b51_b.jpg",
+        name: "Chewie",
+        clicks: 0
+      },{
+        url: "https://farm8.staticflickr.com/7401/16393044637_72e93d96b6_b.jpg",
+        name: "Sunny",
+        clicks: 0
+      },{
+        url: "https://farm9.staticflickr.com/8208/8216315457_28762c496d_b.jpg",
+        name: "Danny",
+        clicks: 0
+      },{
+        url: "https://farm6.staticflickr.com/5704/20443802614_d0b0c0b5c5_b.jpg",
+        name: "Yoann",
+        clicks: 0
+      });
     },
     getCat: function( name ) {
       var index = this.cats.findIndex( function( element, index, array ) {
@@ -26,7 +32,6 @@ $(function() {
         }
         return true;
       });
-      console.log( index );
 
       return index;
     },
@@ -85,7 +90,6 @@ $(function() {
         octopus.listListen( name );
       }
     }
-
   };
 
   var catView = {
