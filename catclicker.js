@@ -43,13 +43,15 @@ $(function() {
     getCurrentCat: function() {
       return model.currentCat;
     },
-    updateCat: function( newName, newImgURL, newClicks ) {
-
+    updateCat: function( newCat ) {
+      model.currentCat = newCat;
+      
+      catView.updateScore();
     },
     clickCat: function() {
       model.currentCat.clicks++;
 
-      catView.updateScore( model.currentCat );
+      catView.updateScore();
     }
     //add functions for handling three buttons
   };
@@ -76,7 +78,8 @@ $(function() {
             octopus.setCurrentCat( catcopy );
             catView.render();
           };
-        })(cat));
+        })(cat)
+        );
       }
     }
   };
@@ -98,13 +101,16 @@ $(function() {
       this.catImgElem.attr('src', cat.url );
       this.catScoreElem.text( 'Score: ' + cat.clicks );
     },
-    updateScore: function( cat ) {
+    updateScore: function() {
+      cat = octopus.getCurrentCat();
+
       this.catScoreElem.text( 'Score: ' + cat.clicks );
     }
   };
 
   var adminView = {
     init: function() {
+      var newCat;
       this.adminFormElem = $('#admin-settings');
       this.adminFormElem.toggle();
 
@@ -131,16 +137,29 @@ $(function() {
         }
       });
 
+      nameCopy = this.catNameElem;
+
       this.save.on('click', (function( newName, newImgURL, newClicks ) {
         return function( newName, newImgURL, newClicks ) {
-          octopus.updateCat( newName, newImgURL, newClicks );
+          newCat = adminView.getNewVals();
+          octopus.updateCat( newCat );
+
           adminView.notify( "save" );
-          this.adminFormElem.toggle();
+          adminView.toggleForm();
         }
-      })( this.catNameElem.val(), this.catURLElem.val(), this.catClicksElem.val() ));
+      })( this.catNameElem.value, this.catURLElem.value, this.catClicksElem.value )
+      );
+    },
+    getNewVals: function() {
+      return {
+        url: this.catURLElem.val(),
+        name: this.catNameElem.val(),
+        clicks: this.catClicksElem.val()
+      };
     },
     resetForm: function() {
       var cat = octopus.getCurrentCat();
+
       if( cat === null ){
         this.save.attr('value', "Add New Cat");
       } else {
@@ -158,5 +177,5 @@ $(function() {
     }
   };
 
-  octopus.init();
+  $(document).ready( octopus.init() );
 });
