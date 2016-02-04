@@ -27,8 +27,14 @@ div img {
   left: 315px;
   float: left;
   width: 500px;
-  padding: 15px;
+  padding: 0 15px;
   margin-right: 10px;
+}
+
+#cats h3 {
+  background: #999;
+  margin-top: 0;
+  padding: 20px 0px;
 }
 
 #sidebar {
