@@ -63,11 +63,6 @@ $(function() {
       octopus.setCurrentCat( model.cats[index] );
       catView.render( model.cats[ index ] );
     },
-    catListen: function( name ) {
-      $('div.' + name ).click( function( name ) {
-        return octopus.clickCat( name );
-      });
-    },
     clickCat: function() {
       model.currentCat.clicks++;
 
@@ -111,8 +106,6 @@ $(function() {
       this.catNameElem.text( cat.name );
       this.catImgElem.attr('src', cat.url );
       this.catScoreElem.text( 'Score: ' + cat.clicks );
-
-      octopus.catListen( cat.name );
     },
     updateScore: function( cat ) {
       this.catScoreElem.text( 'Score: ' + cat.clicks );
