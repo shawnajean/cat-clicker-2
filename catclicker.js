@@ -102,7 +102,7 @@ $(function() {
       this.catScoreElem = $('#score');
 
       this.catImgElem.on('click', function(e){
-        octopus.clickCat();
+        return octopus.clickCat();
       });
     },
     render: function( cat ) {
