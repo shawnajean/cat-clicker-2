@@ -3,7 +3,7 @@ $(function() {
   var model = {
     init: function() { // initializes model
       this.cats = [];
-      this.cats.push( {url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
+      this.cats.push( {url: "http://google.com",name: "Googs",clicks: 0},{url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
       name: "Xuxa",
       clicks: 0 } );
       this.cats.push( {url: "https://farm3.staticflickr.com/2298/2290467335_89067c7b51_b.jpg",
@@ -20,11 +20,18 @@ $(function() {
       clicks: 0 } );
     },
     getCat: function( name ) {
-      var list = $.grep(this.cats, function(e) {
-        return e.name === name;
+      var index = this.cats.findIndex( function( element, index, array ) {
+        if( element.name !== name ) {
+          console.log( "False: " + element.name + " !== " + name + " - " + index );
+          return false;
+        }
+        console.log( "True: " + element.name + " === " + name + " - " + index );
+        return index;
+        console.log("what");
       });
+      console.log( index );
 
-      return list[0];
+      return index;
     },
     click: function( name ) {
 
@@ -48,8 +55,8 @@ $(function() {
     clickList: function( name ) {
       var catName = name.currentTarget.className;
 
-      var cat = model.getCat( catName );
-      catView.render( cat );
+      var index = model.getCat( catName );
+      catView.render( model.cats[ index ] );
     },
     catListen: function( name ) {
       $('div.' + name ).click( function( name ) {
