@@ -1,7 +1,7 @@
 $(function() {
 
   var model = {
-    init: function() {
+    init: function() { // initializes model
       this.cats = [];
       this.cats.push( {url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
       name: "Xuxa"} );
@@ -20,16 +20,16 @@ $(function() {
   };
 
   var octopus = {
-    init: function() {
+    init: function() { // initializes the app
       model.init();
       listView.init();
       catView.init();
     },
-    getCats: function() {
+    getCats: function() { // returns the array of cats
       return model.cats;
     },
-    listen: function( name ) {
-      console.log("this happened - " + name );
+    listen: function( class ) { // adds a listener for the specified class
+      console.log("this happened - " + class );
     },
     clickList: function() {
 
@@ -43,12 +43,12 @@ $(function() {
   };
 
   var listView = {
-    init: function() {
+    init: function() { // initializes list view
       this.listElem = $('#catlist');
 
       listView.render();
     },
-    render: function( ) {
+    render: function( ) { // renders list of cats
       var catList = octopus.getCats();
       var numCats = catList.length;
 
@@ -65,7 +65,7 @@ $(function() {
   };
 
   var catView = {
-    init: function() {
+    init: function() { // initializes cat view
       this.catsElem = $('#cats');
     },
     render: function( cat ) {
