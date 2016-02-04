@@ -19,8 +19,12 @@ $(function() {
       name: "Yoann",
       clicks: 0 } );
     },
-    getCat: function() {
+    getCat: function( name ) {
+      var list = $.grep(this.cats, function(e) {
+        return e.name === name;
+      });
 
+      return list[0];
     },
     click: function( index ) {
 
@@ -44,7 +48,7 @@ $(function() {
     clickList: function( name ) {
       var catName = name.currentTarget.className;
 
-      var cat = model.getCat( name );
+      var cat = model.getCat( catName );
       catView.render( cat );
     },
     catListen: function( name ) {
@@ -84,6 +88,7 @@ $(function() {
       this.catsElem = $('#cats');
     },
     render: function( cat ) {
+      this.catsElem.text( "" );
       this.catsElem.append('<div class="catpic ' + cat.name + '"><h3>' + cat.name + '</h3><img src=' + cat.url + '/><p>Score: <span>' + cat.clicks +'</span></p></div>');
 
       octopus.catListen( cat.name );
@@ -91,5 +96,4 @@ $(function() {
   };
 
   octopus.init();
-  catView.render(model.cats[0]);
 });
