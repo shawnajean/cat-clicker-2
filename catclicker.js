@@ -44,9 +44,11 @@ $(function() {
       return model.currentCat;
     },
     updateCat: function( newCat ) {
-      model.currentCat = newCat;
-      
-      catView.updateScore();
+      model.currentCat.name = newCat.name;
+      model.currentCat.url = newCat.url;
+      model.currentCat.clicks = newCat.clicks;
+
+      catView.render();
     },
     clickCat: function() {
       model.currentCat.clicks++;
