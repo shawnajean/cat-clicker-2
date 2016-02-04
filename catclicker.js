@@ -38,6 +38,7 @@ $(function() {
     },
     setCurrentCat: function( cat ){
       model.currentCat = cat;
+      adminView.resetForm();
     },
     getCurrentCat: function() {
       return model.currentCat;
@@ -109,14 +110,15 @@ $(function() {
 
       this.adminToggle = $('button.admin-toggle');
 
-      this.adminToggle.click( (function( adminFormElem ) {
-        return function( adminFormElem ) {
-          adminView.updateForm();
+      this.adminToggle.click( (function() {
+        return function() {
+          adminView.resetForm();
+          adminView.toggleForm();
         };
-      })( this.adminFormElem ));
+      })(  ));
 
       this.catNameElem = $('input.cat-name');
-      this.catURLElem = $('input.cat-url');
+      this.catURLElem = $('input.cat-URL');
       this.catClicksElem = $('input.cat-clicks');
 
       this.cancel = $('input.cancel');
@@ -138,10 +140,17 @@ $(function() {
       })( this.catNameElem.val(), this.catURLElem.val(), this.catClicksElem.val() ));
     },
     resetForm: function() {
-
+      var cat = octopus.getCurrentCat();
+      if( cat === null ){
+        this.save.attr('value', "Add New Cat");
+      } else {
+        this.save.attr('value', "Save");
+        this.catNameElem.attr('value', cat.name );
+        this.catURLElem.attr('value', cat.url );
+        this.catClicksElem.attr('value', cat.clicks );
+      }
     },
-    updateForm: function() {
-
+    toggleForm: function() {
       this.adminFormElem.toggle();
     },
     notify: function( notif ){
