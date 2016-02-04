@@ -54,13 +54,6 @@ $(function() {
     getCurrentCat: function() {
       return model.currentCat;
     },
-    clickList: function( name ) {
-      var catName = name.currentTarget.className;
-
-      var index = model.getCat( catName );
-      octopus.setCurrentCat( model.cats[index] );
-      catView.render( model.cats[ index ] );
-    },
     clickCat: function() {
       model.currentCat.clicks++;
 
