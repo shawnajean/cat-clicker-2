@@ -77,16 +77,23 @@ $(function() {
       listView.render();
     },
     render: function( ) { // renders list of cats
-      var catList = octopus.getCats();
-      var numCats = catList.length;
+      var cat, i;
+      var cats = octopus.getCats();
+      var numCats = cats.length;
 
-      for( var i = 0; i < numCats; i++ ) {
-        name = catList[i].name;
+      for( i = 0; i < numCats; i++ ) {
+        cat = cats[i];
 
         //add cat to sidebar list
-        this.listElem.append('<li><a class="' + name + '" href="#">' + name + '</a></li>');
+        this.listElem.append('<li><a id="' + cat.name + '" href="#">' + cat.name + '</a></li>');
 
-        octopus.listListen( name );
+        $('#' + cat.name ).on('click', (function(catcopy) {
+          return function() {
+            console.log( catcopy );
+            octopus.setCurrentCat( catcopy );
+            catView.render();
+          };
+        })(cat));
       }
     }
   };
