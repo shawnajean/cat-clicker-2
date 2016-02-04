@@ -49,6 +49,11 @@ div img {
   padding: 20px 0px;
 }
 
+#score {
+  display: block;
+  margin-bottom: 25px;
+}
+
 #admin {
   display: block;
   width: 100%;
@@ -67,9 +72,9 @@ div img {
 }
 
 #admin button {
-  display: block;
   margin-left: 100%;
   margin-bottom: 15px;
+  top: -15px;
 }
 
 #admin button:hover {
@@ -98,4 +103,24 @@ input:focus {
 
 input.cancel, input.save  {
   width: auto;
+}
+
+div.alert {
+  display: inline;
+  width: 75%;
+  padding: 10px 15px;
+  margin-top: 20px;
+
+}
+
+div.alert.saved {
+  background: green;
+}
+
+div.alert.canceled {
+  background: red;
+}
+
+div.alert.added {
+  background: blue;
 }

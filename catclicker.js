@@ -113,6 +113,8 @@ $(function() {
   var adminView = {
     init: function() {
       var newCat;
+      this.adminArea = $('#admin');
+
       this.adminFormElem = $('#admin-settings');
       this.adminFormElem.toggle();
 
@@ -132,12 +134,14 @@ $(function() {
       this.cancel = $('input.cancel');
       this.save = $('input.save');
 
-      this.cancel.on('click', function() {
+      this.cancel.click( (function() {
         return function() {
-          adminView.notify( "cancel" );
           adminView.resetForm();
+          adminView.notify( "cancel" );
+          adminView.toggleForm();
         }
-      });
+      })()
+      );
 
       nameCopy = this.catNameElem;
 
@@ -175,7 +179,19 @@ $(function() {
       this.adminFormElem.toggle();
     },
     notify: function( notif ){
-
+      switch( notif ) {
+        case "save":
+            this.adminArea.prepend( '<div class="alert saved">Your cat has been updated.</div>' );
+            break;
+        case "cancel":
+            this.adminArea.prepend( '<div class="alert canceled">Your changes have been canceled.</div>' );
+            break;
+        case "add":
+            this.adminArea.prepend( '<div class="alert added">Your cat has been added.</div>' );
+            break;
+        default:
+          break;
+      }
     }
   };
 
