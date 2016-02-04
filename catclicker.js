@@ -1,14 +1,11 @@
 $(function() {
 
   var model = {
-
     init: function() {
-      if (!localStorage.notes) {
-        localStorage.notes = JSON.stringify([]);
-      }
+      this.cats = [];
     },
-    add: function() {
-
+    add: function( cat ) {
+      cats.push( cat );
     },
     click: function( index ) {
 
