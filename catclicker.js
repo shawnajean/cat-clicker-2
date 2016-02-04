@@ -48,6 +48,9 @@ $(function() {
     getCats: function() { // returns the array of cats
       return model.cats;
     },
+    setCurrentCat: function( cat ){
+      model.currentCat = cat;
+    },
     listListen: function( name ) { // adds a listener for the specified cat
       $('a.' + name ).click( function( name ) {
         return octopus.clickList( name );
