@@ -42,6 +42,9 @@ $(function() {
     getCurrentCat: function() {
       return model.currentCat;
     },
+    updateCat: function( newName, newImgURL, newClicks ) {
+
+    },
     clickCat: function() {
       model.currentCat.clicks++;
 
@@ -102,10 +105,40 @@ $(function() {
   var adminView = {
     init: function() {
       this.adminFormElem = $('#admin-settings');
+      this.catNameElem = $('input.cat-name');
+      this.catURLElem = $('input.cat-url');
+      this.catClicksElem = $('input.cat-clicks');
 
-      //add listeners for 3 buttons
+      this.cancel = $('input.cancel');
+      this.save = $('input.save');
+
+      this.cancel.on('click', function() {
+        return function() {
+          adminView.notify( "cancel" );
+          adminView.resetForm();
+        }
+      });
+
+      this.save.on('click', (function( newName, newImgURL, newClicks ) {
+        return function( newName, newImgURL, newClicks ) {
+          octopus.updateCat( newName, newImgURL, newClicks );
+          adminView.notify( "save" );
+          this.adminFormElem.toggle();
+        }
+      })( this.catNameElem.val(), this.catURLElem.val(), this.catClicksElem.val() ));
+
+      this.adminToggle = $('button.admin-toggle');
+
+      this.adminToggle.on('click', function() {
+        return this.adminFormElem.toggle();
+      });
+    },
+    resetForm: function() {
+
+    },
+    notify: function( notif ){
+
     }
-    // add function for updating form contents & displaying form
   };
 
   octopus.init();
