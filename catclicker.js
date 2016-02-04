@@ -3,9 +3,16 @@ $(function() {
   var model = {
     init: function() {
       this.cats = [];
-    },
-    add: function( cat ) {
-      cats.push( cat );
+      this.cats.push( {url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
+      name: "Xuxa"} );
+      this.cats.push( {url: "https://farm3.staticflickr.com/2298/2290467335_89067c7b51_b.jpg",
+      name: "Chewie"} );
+      this.cats.push( {url: "https://farm8.staticflickr.com/7401/16393044637_72e93d96b6_b.jpg",
+      name: "Sunny"} );
+      this.cats.push( {url: "https://farm9.staticflickr.com/8208/8216315457_28762c496d_b.jpg",
+      name: "Danny"} );
+      this.cats.push( {url: "https://farm6.staticflickr.com/5704/20443802614_d0b0c0b5c5_b.jpg",
+      name: "Yoann"} );
     },
     click: function( index ) {
 
@@ -17,9 +24,6 @@ $(function() {
       model.init();
       listView.init();
       playView.init();
-    },
-    addCats: function() {
-
     },
     clickList: function() {
 
@@ -53,4 +57,5 @@ $(function() {
   };
 
   octopus.init();
+  console.log(model.cats);
 });
