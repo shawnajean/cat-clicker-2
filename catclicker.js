@@ -25,6 +25,9 @@ $(function() {
       listView.init();
       catView.init();
     },
+    getCats: function() {
+
+    },
     clickList: function() {
 
     },
@@ -39,9 +42,19 @@ $(function() {
   var listView = {
     init: function() {
       var $listElem = $('#catlist');
-    },
-    render: function() {
 
+      listView.render();
+    },
+    render: function( ) {
+      var catList = octopus.getCats();
+      var numCats = catList.length;
+
+      for( var i = 0; i < numCats; i++ ) {
+        name = catList[i].name;
+
+        //add cat to sidebar list
+        $listElem.append('<li><a class="' + name + '" href="#">' + name + '</a></li>');
+      }
     }
 
   };
@@ -57,5 +70,4 @@ $(function() {
   };
 
   octopus.init();
-  console.log(model.cats);
 });
