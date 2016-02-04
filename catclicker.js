@@ -23,7 +23,7 @@ $(function() {
     init: function() {
       model.init();
       listView.init();
-      playView.init();
+      catView.init();
     },
     clickList: function() {
 
@@ -46,7 +46,7 @@ $(function() {
 
   };
 
-  var playView = {
+  var catView = {
     init: function() {
       var $catsElem = $('#cats');
     },
