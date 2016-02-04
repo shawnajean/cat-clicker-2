@@ -1,9 +1,9 @@
 $(function() {
 
   var model = {
-    init: function() { // initializes model
-      this.cats = [];
-      this.cats.push( {
+    currentCat: null,
+    cats: [
+      {
         url: "https://farm2.staticflickr.com/1126/625069434_db86b67df8_b.jpg",
         name: "Xuxa",
         clicks: 0
@@ -23,8 +23,8 @@ $(function() {
         url: "https://farm6.staticflickr.com/5704/20443802614_d0b0c0b5c5_b.jpg",
         name: "Yoann",
         clicks: 0
-      });
-    },
+      }
+    ],
     getCat: function( name ) {
       var index = this.cats.findIndex( function( element, index, array ) {
         if( element.name !== name ) {
@@ -42,7 +42,6 @@ $(function() {
 
   var octopus = {
     init: function() { // initializes the app
-      model.init();
       listView.init();
       catView.init();
     },
