@@ -22,12 +22,9 @@ $(function() {
     getCat: function( name ) {
       var index = this.cats.findIndex( function( element, index, array ) {
         if( element.name !== name ) {
-          console.log( "False: " + element.name + " !== " + name + " - " + index );
           return false;
         }
-        console.log( "True: " + element.name + " === " + name + " - " + index );
-        return index;
-        console.log("what");
+        return true;
       });
       console.log( index );
 
