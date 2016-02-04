@@ -21,6 +21,9 @@ $(function() {
       listView.init();
       playView.init();
     },
+    addCats: function() {
+
+    },
     clickList: function() {
 
     },
