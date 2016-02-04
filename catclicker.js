@@ -130,10 +130,16 @@ $(function() {
       this.adminToggle = $('button.admin-toggle');
 
       this.adminToggle.on('click', function() {
-        return this.adminFormElem.toggle();
+        return function() {
+          adminView.updateForm();
+          this.adminFormElem.toggle();
+        }
       });
     },
     resetForm: function() {
+
+    },
+    updateForm: function() {
 
     },
     notify: function( notif ){
