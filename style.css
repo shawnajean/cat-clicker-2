@@ -1,0 +1,44 @@
+body, html {
+  margin:0;
+  padding:0;
+  color:#000;
+  background:#ccc;
+  font-family: monospace;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+div {
+  display: inline;
+}
+
+div img {
+  width: 100%;
+}
+
+#content {
+  width: 750px;
+  margin: 0 auto;
+}
+
+#cats {
+  left: 315px;
+  float: left;
+  width: 500px;
+  padding: 15px;
+  margin-right: 10px;
+}
+
+#sidebar {
+  float: left;
+  width: 250px;
+  background: #999;
+  padding: 15px;
+  margin-left: 50px;
+}
+
+.hidden {
+  display: none;
+}
