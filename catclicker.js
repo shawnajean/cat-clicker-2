@@ -45,9 +45,6 @@ $(function() {
     },
     clickCat: function() {
 
-    },
-    render: function() {
-
     }
   };
 
@@ -78,10 +75,11 @@ $(function() {
       this.catsElem = $('#cats');
     },
     render: function( cat ) {
-
+      this.catsElem.append('<div class="catpic ' + cat.name + '"><h3>' + cat.name + '</h3><img src=' + cat.url + '/><p>Score: <span>' + cat.clicks +'</span></p></div>');
     }
 
   };
 
   octopus.init();
+  catView.render(model.cats[0]);
 });
