@@ -35,8 +35,9 @@ $(function() {
 
       return index;
     },
-    click: function( name ) {
-      console.log( "name" );
+    click: function( index ) {
+      this.cats[index].clicks++;
+      console.log( this.cats[index].clicks );
     }
   };
 
