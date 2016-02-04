@@ -36,7 +36,7 @@ $(function() {
       return index;
     },
     click: function( name ) {
-
+      console.log( "name" );
     }
   };
 
@@ -67,7 +67,10 @@ $(function() {
     },
     clickCat: function( name ) {
       var catName = name.currentTarget.className;
-      console.log( catName );
+      var index = model.getCat( catName );
+
+      model.click( index );
+      catView.renderScore( model.cats[index] );
     }
   };
 
@@ -103,7 +106,7 @@ $(function() {
       octopus.catListen( cat.name );
     },
     renderScore: function( cat ) {
-
+      console.log( cat );
     }
   };
 
