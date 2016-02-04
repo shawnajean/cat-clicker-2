@@ -19,6 +19,9 @@ $(function() {
       name: "Yoann",
       clicks: 0 } );
     },
+    getCat: function() {
+
+    },
     click: function( index ) {
 
     }
@@ -40,7 +43,9 @@ $(function() {
     },
     clickList: function( name ) {
       var catName = name.currentTarget.className;
-      console.log( catName );
+
+      var cat = model.getCat( name );
+      catView.render( cat );
     },
     catListen: function( name ) {
       $('div.' + name ).click( function( name ) {
