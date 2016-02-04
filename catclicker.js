@@ -41,7 +41,7 @@ $(function() {
 
   var listView = {
     init: function() {
-      var $listElem = $('#catlist');
+      this.listElem = $('#catlist');
 
       listView.render();
     },
@@ -53,7 +53,7 @@ $(function() {
         name = catList[i].name;
 
         //add cat to sidebar list
-        $listElem.append('<li><a class="' + name + '" href="#">' + name + '</a></li>');
+        this.listElem.append('<li><a class="' + name + '" href="#">' + name + '</a></li>');
       }
     }
 
@@ -61,7 +61,7 @@ $(function() {
 
   var catView = {
     init: function() {
-      var $catsElem = $('#cats');
+      this.catsElem = $('#cats');
     },
     render: function( cat ) {
 
