@@ -28,6 +28,9 @@ $(function() {
     getCats: function() {
       return model.cats;
     },
+    listen: function( name ) {
+      console.log("this happened - " + name );
+    },
     clickList: function() {
 
     },
@@ -54,6 +57,8 @@ $(function() {
 
         //add cat to sidebar list
         this.listElem.append('<li><a class="' + name + '" href="#">' + name + '</a></li>');
+
+        octopus.listen( name );
       }
     }
 
