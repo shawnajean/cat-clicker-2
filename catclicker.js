@@ -54,11 +54,6 @@ $(function() {
     getCurrentCat: function() {
       return model.currentCat;
     },
-    listListen: function( name ) { // adds a listener for the specified cat
-      $('a.' + name ).click( function( name ) {
-        return octopus.clickList( name );
-      });
-    },
     clickList: function( name ) {
       var catName = name.currentTarget.className;
 
