@@ -122,8 +122,12 @@ $(function() {
 
       this.adminToggle.click( (function() {
         return function() {
-          adminView.resetForm();
-          adminView.toggleForm();
+          if( octopus.getCurrentCat() !== null ){
+            adminView.resetForm();
+            adminView.toggleForm();
+          } else {
+            adminView.notify( "nocat" );
+          }
         };
       })(  ));
 
@@ -166,13 +170,13 @@ $(function() {
     resetForm: function() {
       var cat = octopus.getCurrentCat();
 
-      if( cat === null ){
-        this.save.attr('value', "Add New Cat");
-      } else {
+      if( cat !== null ){
         this.save.attr('value', "Save");
         this.catNameElem.attr('value', cat.name );
         this.catURLElem.attr('value', cat.url );
         this.catClicksElem.attr('value', cat.clicks );
+      } else {
+          //this.save.attr('value', "Add New Cat");
       }
     },
     toggleForm: function() {
@@ -186,12 +190,20 @@ $(function() {
         case "cancel":
             this.adminArea.prepend( '<div class="alert canceled">Your changes have been canceled.</div>' );
             break;
+        case "nocat":
+            this.adminArea.prepend( '<div class="alert canceled">No cat selected.</div>' );
+            break;
         case "add":
             this.adminArea.prepend( '<div class="alert added">Your cat has been added.</div>' );
             break;
         default:
           break;
       }
+      setTimeout(function(){
+        if ($('div.alert').length > 0) {
+          $('div.alert').remove();
+        }
+      }, 5000);
     }
   };
 
